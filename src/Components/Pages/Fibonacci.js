@@ -40,7 +40,7 @@ const Fibonacci = () => {
       <form onSubmit={handleSubmit}>
             <div className="row">
                 <div className="form-group col-md-8">
-                    <input type="text" className="form-control form-control lg"
+                    <input type="number" className="form-control form-control lg"
                     placeholder="Inserte el número" onChange={handleChange} disabled={calculating} />
                 </div>
                 <div className="form-group col-md-4">
@@ -51,8 +51,8 @@ const Fibonacci = () => {
             </div>
         </form>
       <br/>
-      <div >
-        <h3>Resultado: {calculating ? 'Calculando el fibonacci' : fibonacci}</h3>
+      <div className='app-results' >
+        <h3>Resultado: {calculating ? 'Calculando el fibonacci' : <div className='fibonacci-list'>{fibonacci && fibonacci.split(',').map(number => <div className='fibonacci'>{number}</div>)}</div>}</h3>
       </div>
     </div>
   );

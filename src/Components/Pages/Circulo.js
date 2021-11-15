@@ -54,7 +54,7 @@ const Circulo = (props) => {
       <form onSubmit={handleSubmit}>
             <div className="row">
                 <div className="form-group col-md-8">
-                    <input type="text" className="form-control form-control lg"
+                    <input type="number" className="form-control form-control lg"
                     placeholder="Inserte el radio" min={0} onChange={handleChange} disabled={isCalculating}/>
                 </div>
                 <div className="form-group col-md-4">
