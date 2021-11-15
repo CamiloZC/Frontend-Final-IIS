@@ -11,7 +11,7 @@ const Factorial = () => {
 
   const calculateFactorial = async () => {
     setIsCalculating(true)
-    axios.get(`http://localhost:3001/factorial?number=${number}`)
+    axios.get(`https://final-app-iis.herokuapp.com/factorial?number=${number}`)
     .then(({data}) => setFactorial(data.factorial))
     .finally(() => setIsCalculating(false))
   }

@@ -16,14 +16,14 @@ const Rectangulo = (props) => {
 
   const calculatePerimeter = async () => {
     setIsCalculatingPerimeter(true)
-    axios.get(`http://localhost:3001/perimeter/rectangle?sideA=${sides.sideA}&sideB=${sides.sideB}`)
+    axios.get(`https://final-app-iis.herokuapp.com/perimeter/rectangle?sideA=${sides.sideA}&sideB=${sides.sideB}`)
     .then(({data}) => setPerimeter(data.perimeter))
     .finally(() => setIsCalculatingPerimeter(false))
   }
 
   const calculateArea = async () => {
     setIsCalculatingArea(true)
-    axios.get(`http://localhost:3001/area/rectangle?sideA=${sides.sideA}&sideB=${sides.sideB}`)
+    axios.get(`https://final-app-iis.herokuapp.com/area/rectangle?sideA=${sides.sideA}&sideB=${sides.sideB}`)
     .then(({data}) => setArea(data.area))
     .finally(() => setIsCalculatingArea(false))
   }
