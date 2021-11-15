@@ -1,28 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
+import axios from 'axios';
+
 import '../../App.css'
 
-function Factorial() {
+const Factorial = () => {
+  const [calculating, setIsCalculating] = useState(false)
+  const [canCalculate, setCanCalculate] = useState(false)
+  const [number, setNumber] = useState(null)
+  const [factorial, setFactorial] = useState(null)
+
+  const calculateFactorial = async () => {
+    setIsCalculating(true)
+    axios.get(`http://localhost:3001/factorial?number=${number}`)
+    .then(({data}) => setFactorial(data.factorial))
+    .finally(() => setIsCalculating(false))
+  }
+  
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    return calculateFactorial()
+  }
+
+  useEffect(() => {
+    setCanCalculate(number && number > 0)
+
+  }, [number])
+
+  const handleChange = (event) => {
+    const numberValue = parseInt(event.target.value)
+    setNumber(numberValue)
+  }
+
   return (
     <div className="app-container">
       <div >
         <h1>Factorial</h1>
       </div>
       <br/>
-      <form>
+      <form onSubmit={handleSubmit}>
             <div className="row">
                 <div className="form-group col-md-8">
                     <input type="text" className="form-control form-control lg"
-                    placeholder="Inserte el número" />
+                    placeholder="Inserte el número" onChange={handleChange} disabled={calculating} />
                 </div>
                 <div className="form-group col-md-4">
-                    <input type="submit" class="btn btn-danger"
-                    value="Calcular" />
+                <button disabled={calculating || !canCalculate} type="submit" className="btn btn-danger">
+                        {calculating ? 'Calculando' : 'Calcular'}
+                        </button>
                 </div>
             </div>
         </form>
       <br/>
       <div >
-        <h3>Resultado:</h3>
+        <h3>Resultado: {calculating ? 'Calculando el factorial' : factorial}</h3>
       </div>
     </div>
   );
