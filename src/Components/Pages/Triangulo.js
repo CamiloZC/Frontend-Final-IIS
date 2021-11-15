@@ -16,14 +16,14 @@ const Triangulo = (props) => {
 
   const calculatePerimeter = async () => {
     setIsCalculatingPerimeter(true)
-    axios.get(`http://localhost:3001/perimeter/triangle?sideA=${sides.sideA}&sideB=${sides.sideB}&sideC=${sides.sideC}`)
+    axios.get(`https://final-app-iis.herokuapp.com/perimeter/triangle?sideA=${sides.sideA}&sideB=${sides.sideB}&sideC=${sides.sideC}`)
     .then(({data}) => setPerimeter(data.perimeter))
     .finally(() => setIsCalculatingPerimeter(false))
   }
 
   const calculateArea = async () => {
     setIsCalculatingArea(true)
-    axios.get(`http://localhost:3001/area/triangle?sideA=${sides.sideA}&sideB=${sides.sideB}&sideC=${sides.sideC}`)
+    axios.get(`https://final-app-iis.herokuapp.com/area/triangle?sideA=${sides.sideA}&sideB=${sides.sideB}&sideC=${sides.sideC}`)
     .then(({data}) => setArea(data.area))
     .finally(() => setIsCalculatingArea(false))
   }

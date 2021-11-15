@@ -13,14 +13,14 @@ const Circulo = (props) => {
 
   const calculatePerimeter = async () => {
     setIsCalculatingPerimeter(true)
-    axios.get(`http://localhost:3001/perimeter/circle?radio=${radio}`)
+    axios.get(`https://final-app-iis.herokuapp.com/perimeter/circle?radio=${radio}`)
     .then(({data}) => setPerimeter(data.perimeter))
     .finally(() => setIsCalculatingPerimeter(false))
   }
 
   const calculateArea = async () => {
     setIsCalculatingArea(true)
-    axios.get(`http://localhost:3001/area/circle?radio=${radio}`)
+    axios.get(`https://final-app-iis.herokuapp.com/area/circle?radio=${radio}`)
     .then(({data}) => setArea(data.area))
     .finally(() => setIsCalculatingArea(false))
   }

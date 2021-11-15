@@ -11,7 +11,7 @@ const Fibonacci = () => {
 
   const calculateFibonacci = async () => {
     setIsCalculating(true)
-    axios.get(`http://localhost:3001/fibonacci?number=${number}`)
+    axios.get(`https://final-app-iis.herokuapp.com/fibonacci?number=${number}`)
     .then(({data}) => setFibonacci(data.fibonacci))
     .finally(() => setIsCalculating(false))
   }
