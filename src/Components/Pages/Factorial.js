@@ -22,7 +22,7 @@ const Factorial = () => {
   }
 
   useEffect(() => {
-    setCanCalculate(number && number > 0)
+    setCanCalculate(number >= 0)
 
   }, [number])
 
@@ -40,7 +40,7 @@ const Factorial = () => {
       <form onSubmit={handleSubmit}>
             <div className="row">
                 <div className="form-group col-md-8">
-                    <input type="text" className="form-control form-control lg"
+                    <input type="number" className="form-control form-control lg"
                     placeholder="Inserte el número" onChange={handleChange} disabled={calculating} />
                 </div>
                 <div className="form-group col-md-4">
